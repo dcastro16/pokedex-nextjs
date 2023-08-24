@@ -1,0 +1,43 @@
+.pokemon-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.pokemon-data {
+  width: 100%;
+}
+
+.pokemon-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.pokemon-name {
+  font-size: 2.25rem;
+  font-weight: bold;
+}
+
+.pokemon-text {
+  font-size: 25px;
+}
+
+.pokemon-sprites {
+  display: flex;
+  width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .pokemon-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+    gap: 5rem;
+  }
+
+  .pokemon-data {
+    width: 50%;
+  }
+}

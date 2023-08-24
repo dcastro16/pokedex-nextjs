@@ -1,6 +1,7 @@
 import Image from "next/image";
-import styles from "./Navbar.module.css";
 import NextLink from "next/link";
+
+import styles from "./Navbar.module.css";
 
 export const Navbar = () => {
   return (
@@ -19,13 +20,12 @@ export const Navbar = () => {
             width={70}
             height={70}
           ></Image>
-
           <b>P</b>
           <p>okemon</p>
         </NextLink>
       </div>
       <NextLink href={"/favorites"} passHref>
-        <p style={{ fontWeight: "bold" , fontSize: '20px'}}>Favoritos</p>
+        <p style={{ fontWeight: "bold", fontSize: "20px" }}>Favoritos</p>
       </NextLink>
     </div>
   );

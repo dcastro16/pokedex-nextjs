@@ -1,8 +1,10 @@
 import { GetStaticProps, NextPage } from "next";
+
 import { Layout } from "@/components/layouts";
 import { pokeApi } from "@/api";
 import { Pokemon, PokemonListResponse } from "../../interfaces/pokemon-list";
 import { PokemonCard } from "@/components/pokemon/PokemonCard";
+import styles from "./index.module.css";
 
 interface Props {
   pokemons: Pokemon[];
@@ -15,16 +17,7 @@ const HomePage: NextPage<Props> = ({ pokemons }) => {
 
   return (
     <Layout title="Lista de pokemons">
-      <ul
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr 1fr 1fr",
-          columnGap: "4rem",
-          rowGap: "2rem",
-        }}
-      >
-        {pokemons.map(renderPokemon)}
-      </ul>
+      <ul className={styles["pokemon-list"]}>{pokemons.map(renderPokemon)}</ul>
     </Layout>
   );
 };

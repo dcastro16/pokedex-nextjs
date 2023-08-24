@@ -1,9 +1,11 @@
 import { FC, useEffect, useState } from "react";
+import { Card, Image } from "@nextui-org/react";
+import { useRouter } from "next/router";
+
 import { Layout } from "../../components/layouts";
 import { localFavorites } from "../../utils";
 import { NoFavorites } from "@/components/ui/NoFavorites";
-import { Card, Image } from "@nextui-org/react";
-import { useRouter } from "next/router";
+import styles from "./favorites.module.css";
 
 interface Props {
   pokemons: number[];
@@ -23,20 +25,12 @@ const FavoritesPage: FC<Props> = ({ pokemons }) => {
         isHoverable
         isPressable
         onPress={() => onClick(pokemonId)}
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: "2rem",
-          width: "300px",
-          height: "300px",
-        }}
+        className={styles["card"]}
       >
         <Image
           alt="Pokemon photo"
           src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemonId}.svg`}
-          width={"100%"}
-          height={140}
+          className={styles["card__image"]}
         />
       </Card>
     );
@@ -53,12 +47,7 @@ const FavoritesPage: FC<Props> = ({ pokemons }) => {
         <NoFavorites />
       ) : (
         <ul
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, 295px)",
-            columnGap: "4rem",
-            rowGap: "2rem",
-          }}
+          className={styles["pokemon-list"]}
         >
           {favoritePokemons.map(renderPokemon)}
         </ul>

@@ -1,0 +1,22 @@
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    width: 100%;
+    height: 12.5rem;
+}
+
+.card__image {
+  object-fit: fill;
+  width: 100%;
+  height: 12.5rem;
+}
+
+.pokemon-list {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, 295px);
+    column-gap: 4rem;
+    row-gap: 2rem;
+}

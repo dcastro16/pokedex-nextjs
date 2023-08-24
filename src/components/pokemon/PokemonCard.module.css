@@ -1,0 +1,17 @@
+.card {
+  display: flex;
+  align-items: center;
+}
+
+.card__image-container {
+  display: flex;
+  justify-content: center;
+  width: 12.5rem;
+  height: 12.5rem;
+}
+
+.card__image {
+  object-fit: fill;
+  width: 12.5rem;
+  height: 12.5rem;
+}

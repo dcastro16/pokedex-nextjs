@@ -3,13 +3,15 @@ import { GetStaticProps, GetStaticPaths, NextPage } from "next";
 import { Button, Image } from "@nextui-org/react";
 import { FiHeart } from "react-icons/fi";
 import { FiX } from "react-icons/fi";
+import confetti from "canvas-confetti";
+
 import { PokemonData, PokemonListResponse } from "../../../interfaces";
+import { getPokemonInfo } from "@/utils/getPokemonInfo";
 import { capitalizeFLetter } from "@/utils/helpers";
 import { Layout } from "@/components/layouts";
 import { localFavorites } from "@/utils";
 import pokeApi from "@/api/pokeApi";
-import confetti from "canvas-confetti";
-import { getPokemonInfo } from "@/utils/getPokemonInfo";
+import styles from "./[name].module.css";
 
 interface Props {
   pokemon: PokemonData;
@@ -43,15 +45,7 @@ const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
 
   return (
     <Layout title={capitalizeFLetter(pokemon.name)}>
-      <div
-        className="pokemon-container"
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          gap: "5rem",
-          paddingTop: "2rem",
-        }}
-      >
+      <div className={styles["pokemon-container"]}>
         <Image
           alt={`Image of ${pokemon.name}`}
           src={
@@ -60,12 +54,7 @@ const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
           width={400}
           height={150}
         />
-        <div
-          className="pokemon-data"
-          style={{
-            width: "50%",
-          }}
-        >
+        <div className={styles["pokemon-data"]}>
           <div
             className="pokemon-header"
             style={{
@@ -74,12 +63,7 @@ const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
               width: "100%",
             }}
           >
-            <h1
-              style={{
-                fontSize: "36px",
-                fontStyle: "bold",
-              }}
-            >
+            <h1 className={styles["pokemon-name"]}>
               {capitalizeFLetter(pokemon.name)}
             </h1>
             <Button
@@ -99,21 +83,8 @@ const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
               )}
             </Button>
           </div>
-          <h2
-            className="text"
-            style={{
-              fontSize: "25px",
-            }}
-          >
-            Sprites:
-          </h2>
-          <div
-            className="sprites"
-            style={{
-              display: "flex",
-              width: "100%",
-            }}
-          >
+          <h2 className={styles["pokemon-text"]}>Sprites:</h2>
+          <div className={styles["pokemon-sprites"]}>
             <Image
               alt={`Image of ${pokemon.name}`}
               src={pokemon.sprites.front_default}
