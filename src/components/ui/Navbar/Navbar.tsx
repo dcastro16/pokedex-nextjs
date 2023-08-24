@@ -25,7 +25,7 @@ export const Navbar = () => {
         </NextLink>
       </div>
       <NextLink href={"/favorites"} passHref>
-        <p style={{ fontWeight: "bold", fontSize: "20px" }}>Favoritos</p>
+        <p style={{ fontWeight: "400", fontSize: "20px" }}>Favoritos</p>
       </NextLink>
     </div>
   );

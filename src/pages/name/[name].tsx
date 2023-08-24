@@ -51,8 +51,7 @@ const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
           src={
             pokemon.sprites.other?.dream_world.front_default || "/no-image.png"
           }
-          width={400}
-          height={150}
+          className={styles["pokemon-image"]}
         />
         <div className={styles["pokemon-data"]}>
           <div
@@ -71,6 +70,7 @@ const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
               aria-label="Like"
               onClick={handleFavClick}
               variant={!isInFavorites ? "shadow" : "ghost"}
+              className={styles["pokemon-favoritesBtn"]}
             >
               {isInFavorites ? (
                 <>
